@@ -1,0 +1,29 @@
+- name: yametrica
+  type: table
+  desc: Functions and constants for interacting with Yandex.Metrica JS API
+  members:
+
+  - name: hit
+    type: function
+    parameters:
+    - name: url
+      type: string
+    - name: options
+      type: table
+      optional: true
+
+  - name: not_bounce
+    type: function
+    parameters:
+    - name: options
+      type: table
+      optional: true
+
+  - name: reach_goal
+    type: function
+    parameters:
+    - name: target
+      type: string
+    - name: params
+      type: table
+      optional: true

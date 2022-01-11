@@ -1,0 +1,29 @@
+function init(self)
+	if not yametrica then
+		error("YaMetrica doesn't support this platform!")
+	end
+
+	yametrica.not_bounce()
+	yametrica.not_bounce({ test = true })
+
+	yametrica.hit("#test")
+	yametrica.hit("#test2", { title = "Main Page" })
+	yametrica.hit("#test3", { title = "UTF8 Test - Русские БУКВЫ" })
+
+	yametrica.reach_goal("Goal1")
+	yametrica.reach_goal("Goal2", { order_price = 10, currency = "USD" })
+
+	print("Everything is OK! Also, check log messages in the Developer tools.")
+end
+
+function final(self)
+end
+
+function update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+end
+
+function on_input(self, action_id, action)
+end
