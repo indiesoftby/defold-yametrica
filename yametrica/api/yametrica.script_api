@@ -19,6 +19,15 @@
       type: table
       optional: true
 
+  - name: params
+    type: function
+    parameters:
+    - name: visit_params
+      type: table
+    - name: goal_params
+      type: table
+      optional: true
+
   - name: reach_goal
     type: function
     parameters:
@@ -27,3 +36,9 @@
     - name: params
       type: table
       optional: true
+
+  - name: user_params
+    type: function
+    parameters:
+    - name: params
+      type: table

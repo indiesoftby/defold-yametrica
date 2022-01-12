@@ -32,12 +32,39 @@ var LibraryYaMetrica = {
         }
     },
 
+    YaMetrica_Params: function (counterId, cVisitParams, cVisitParamsLen, cGoalParams, cGoalParamsLen) {
+        // console.log("YaMetrica_Params", counterId, cVisitParams === 0 ? "NULL" : UTF8ToString(cVisitParams, cVisitParamsLen), cGoalParams === 0 ? "NULL" : UTF8ToString(cGoalParams, cGoalParamsLen));
+
+        try {
+            var visitParams = YaMetrica.parseJson(UTF8ToString(cVisitParams, cVisitParamsLen));
+            if (cGoalParams === 0) {
+                ym(counterId, "params", visitParams);
+            } else {
+                var goalParams = YaMetrica.parseJson(UTF8ToString(cGoalParams, cGoalParamsLen));
+                ym(counterId, "params", visitParams, goalParams);
+            }
+        } catch (e) {
+            console.warn(e);
+        }
+    },
+
     YaMetrica_ReachGoal: function (counterId, target, cParams, cParamsLen) {
         // console.log("YaMetrica_ReachGoal", counterId, UTF8ToString(target), cParams === 0 ? "NULL" : UTF8ToString(cParams, cParamsLen));
 
         try {
             var params = cParams === 0 ? {} : YaMetrica.parseJson(UTF8ToString(cParams, cParamsLen));
             ym(counterId, "reachGoal", UTF8ToString(target), params);
+        } catch (e) {
+            console.warn(e);
+        }
+    },
+
+    YaMetrica_UserParams: function (counterId, cParams, cParamsLen) {
+        // console.log("YaMetrica_UserParams", counterId, cParams === 0 ? "NULL" : UTF8ToString(cParams, cParamsLen));
+
+        try {
+            var params = cParams === 0 ? {} : YaMetrica.parseJson(UTF8ToString(cParams, cParamsLen));
+            ym(counterId, "userParams", params);
         } catch (e) {
             console.warn(e);
         }

@@ -9,7 +9,7 @@ extern "C" {
 
 void YaMetrica_CJSON_Init();
 void YaMetrica_CJSON_Final();
-char *YaMetrica_CJSON_Encode(lua_State *l, int* out_len);
+char *YaMetrica_CJSON_Encode(lua_State *l, int arg, int* out_len, bool copy);
 
 #ifdef __cplusplus
 }

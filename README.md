@@ -36,6 +36,8 @@ Then add the following to your `game.project` file:
 counter_id = PUT_YOUR_COUNTER_ID_HERE
 ```
 
+Setting the `yametrica.counter_id` option initializes Yandex.Metrica SDK in the HTML5 template ([take a look at how it's done](https://github.com/indiesoftby/defold-yametrica/blob/main/yametrica/manifests/web/engine_template.html#L27)). From this moment, you can call `yametrica.*` functions.
+
 ### 3. Call YaMetrica Methods
 
 In your `main.script` call `not_bounce` to send information about a non-bounce. It means, for the Yandex.Metrica, that your game finished loading:
@@ -58,11 +60,13 @@ end
 
 ## Lua <-> JS
 
-| Yandex.Metrica JS SDK | YaMetrica Lua API |
+| [Yandex.Metrica JS SDK](https://yandex.com/support/metrica/objects/method-reference.html?lang=en)] | YaMetrica Lua API |
 | --------------------- | ----------------- |
 | `ym(XXXXXX, 'hit', url[, options])` | `yametrica.hit(url, [options])` |
 | `ym(XXXXXX, 'notBounce', [options])` | `yametrica.not_bounce([options])` |
+| `ym(XXXXXX, 'params', visitParams[, goalParams])` | `yametrica.params(visit_params, [goal_params])` |
 | `ym(XXXXXX, 'reachGoal', target[, params[, callback[, ctx]]])` | `yametrica.reach_goal(target, [params])` |
+| `ym(XXXXXX, 'userParams', parameters)` | `yametrica.user_params(parameters)` |
 
 ## Credits
 

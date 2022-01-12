@@ -486,8 +486,9 @@ void YaMetrica_CJSON_Final()
 //
 // Encode to JSON the top of the Lua stack.
 //
-char *YaMetrica_CJSON_Encode(lua_State *L, int* out_len)
+char *YaMetrica_CJSON_Encode(lua_State *L, int arg, int* out_len, bool copy)
 {
+    lua_pushvalue(L, arg);
     strbuf_t *encode_buf;
     if (!cfg->encode_keep_buffer)
     {
@@ -498,7 +499,16 @@ char *YaMetrica_CJSON_Encode(lua_State *L, int* out_len)
         strbuf_reset(encode_buf);
     }
     json_append_data(L, cfg, 0, encode_buf);
-    return strbuf_string(encode_buf, out_len);
+    lua_pop(L, 1);
+
+    char *str = strbuf_string(encode_buf, out_len);
+    if (!copy) {
+        return str;
+    }
+    
+    char *str2 = (char *)malloc(*out_len);
+    memcpy(str2, str, *out_len);
+    return str2;
 }
 
 #ifdef __cplusplus

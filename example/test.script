@@ -13,6 +13,15 @@ function init(self)
 	yametrica.reach_goal("Goal1")
 	yametrica.reach_goal("Goal2", { order_price = 10, currency = "USD" })
 
+	-- yametrica.params()
+	yametrica.params({ test1 = "A" })
+	yametrica.params({ test2 = "B" }, {
+		order_price = 1000.35,
+		currency = "RUB"
+	})
+
+	yametrica.user_params({ test3 = "C" })
+
 	print("Everything is OK! Also, check log messages in the Developer tools.")
 end
 
