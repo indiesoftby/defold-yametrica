@@ -1,8 +1,10 @@
 # Yandex.Metrica for Defold
 
-**⚠️ Work In Progress! Not Ready Yet ⚠️**
+[Yandex.Metrica](https://metrika.yandex.com/) is a free of charge web analytics tool for **websites**, that's the reason why we can use it for HTML5 games. Yandex.Metrica is one of the top three leading web analytics solutions in the world.
 
-[Yandex.Metrica](https://metrika.yandex.com/) is a free of charge web analytics tool for websites.
+Don't be confused with AppMetrica by Yandex - it's an iOS/Android app analytics.
+
+This native extension doesn't implement all Yandex.Metrica functions, but they are enough to track most of the stats of your game.
 
 ## Supported Platforms
 
@@ -21,11 +23,13 @@ On the page with the list of tags, [add a tag](https://metrica.yandex.com/add). 
 - **Tag name.** The specified name is shown on the My tags page and in the upper menu for switching between tags. Use the name of your Defold game.
 - **Site URL.** Put the address of your game on Yandex.Games like `yandex.ru/games/play/123456`.
 
-Then accept the Terms of use, click Create a tag.
+Then accept the Terms of use, click Create a tag. Copy the ID of your counter.
+
+![](tutorial_step1.png)
 
 ### 2. Add YaMetrica As Dependency
 
-You can use it in your own project by adding this project as a [Defold library dependency](http://www.defold.com/manuals/libraries/).
+You can use YaMetrica in your own project by adding this project as a [Defold library dependency](http://www.defold.com/manuals/libraries/).
 
 Open your `game.project` file and in the dependencies field under project add the ZIP file of a [specific release](https://github.com/indiesoftby/defold-yametrica/tags).
 
@@ -60,7 +64,7 @@ end
 
 ## Lua <-> JS
 
-| [Yandex.Metrica JS SDK](https://yandex.com/support/metrica/objects/method-reference.html?lang=en)] | YaMetrica Lua API |
+| [Yandex.Metrica JS SDK](https://yandex.com/support/metrica/objects/method-reference.html?lang=en) | YaMetrica Lua API |
 | --------------------- | ----------------- |
 | `ym(XXXXXX, 'hit', url[, options])` | `yametrica.hit(url, [options])` |
 | `ym(XXXXXX, 'notBounce', [options])` | `yametrica.not_bounce([options])` |
