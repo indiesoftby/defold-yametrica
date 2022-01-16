@@ -1,6 +1,6 @@
 # Yandex.Metrica for Defold
 
-[Yandex.Metrica](https://metrika.yandex.com/) is a free of charge web analytics tool for **websites**, that's the reason why we can use it for HTML5 games. Yandex.Metrica is one of the top three leading web analytics solutions in the world.
+[Yandex.Metrica](https://metrika.yandex.com/) is a free of charge web analytics tool for websites, that's the reason why we can use it for HTML5 games. Yandex.Metrica is one of the top three leading web analytics solutions in the world.
 
 Don't be confused with AppMetrica by Yandex - it's an iOS/Android app analytics.
 
@@ -31,7 +31,7 @@ Then accept the Terms of use, click Create a tag. Copy the ID of your counter.
 
 You can use YaMetrica in your own project by adding this project as a [Defold library dependency](http://www.defold.com/manuals/libraries/).
 
-Open your `game.project` file and in the dependencies field under project add the ZIP file of a [specific release](https://github.com/indiesoftby/defold-yametrica/tags).
+Open your `game.project` file and in the dependencies field under project add the ZIP file of a [specific release](https://github.com/indiesoftby/defold-yametrica/releases).
 
 Then add the following to your `game.project` file:
 
@@ -62,7 +62,15 @@ if yametrica then
 end
 ```
 
-## Lua <-> JS
+### Best Practices
+
+Keep in mind that Yandex.Metrica is web analytics for **websites**, but you are going to use it for an HTML5 game, which is, technically, a single-page website.
+
+1. Call `hit(..)` to track significant events in your game: start/end of a level, show/hide of a scene, calling fullscreen ads, etc.
+2. Use anchor identifiers as IDs of events and titles as the name of events: `yametrica.hit("#scene-started-introduction", { title: "Scene Started: Introduction" })`.
+3. It's crucial to call `hit(..)` quite often to have a precise `Session Length` value.
+
+### Lua <-> JS
 
 | [Yandex.Metrica JS SDK](https://yandex.com/support/metrica/objects/method-reference.html?lang=en) | YaMetrica Lua API |
 | --------------------- | ----------------- |
@@ -71,6 +79,12 @@ end
 | `ym(XXXXXX, 'params', visitParams[, goalParams])` | `yametrica.params(visit_params, [goal_params])` |
 | `ym(XXXXXX, 'reachGoal', target[, params[, callback[, ctx]]])` | `yametrica.reach_goal(target, [params])` |
 | `ym(XXXXXX, 'userParams', parameters)` | `yametrica.user_params(parameters)` |
+| <hr> | <hr> |
+| `ym(XXXXXX, 'addFileExtension', extensions)` | Not implemented |
+| `ym(XXXXXX, 'extLink', url[, options])` | Not implemented |
+| `ym(XXXXXX, 'file', url[, options])` | Not implemented |
+| `ym(XXXXXX, 'getClientID', function(clientID) { <function body> })` | Not implemented |
+| `ym(XXXXXX, 'setUserID', "12345")` | Not implemented |
 
 ## Credits
 
