@@ -1,4 +1,8 @@
+[![YaMetrica Cover](cover.jpg)](https://github.com/indiesoftby/defold-yametrica)
+
 # Yandex.Metrica for Defold
+
+*This is an open-source project. It is not affiliated with Yandex LLC.*
 
 [Yandex.Metrica](https://metrika.yandex.com/) is a free of charge web analytics tool for websites, that's the reason why we can use it for HTML5 games. Yandex.Metrica is one of the top three leading web analytics solutions in the world.
 
