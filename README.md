@@ -52,9 +52,9 @@ In your `main.script` call `not_bounce` to send information about a non-bounce. 
 
 ```lua
 function init(self)
-	if yametrica then
-		yametrica.not_bounce()
-	end
+    if yametrica then
+        yametrica.not_bounce()
+    end
 end
 ```
 
@@ -62,7 +62,7 @@ Then, for every in-game events like scene switching or level ending, call `hit`:
 
 ```lua
 if yametrica then
-    yametrica.hit("#event-name", { title: "Event Name" })
+    yametrica.hit("#event-name", { title = "Event Name" })
 end
 ```
 
